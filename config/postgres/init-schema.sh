@@ -79,10 +79,10 @@ CREATE TABLE IF NOT EXISTS reservation (
 );
 
 -- Insert data for city
-INSERT INTO city (name, created_at) VALUES
+INSERT INTO city (name) VALUES
 ('Riyadh'), ('Jeddah'), ('Dammam'), ('Makkah');
 
-INSERT INTO district (name, city_id, created_at) VALUES
+INSERT INTO district (name, city_id) VALUES
 ('Olaya',     (SELECT id FROM city WHERE name = 'Riyadh')),
 ('Al-Malaz',  (SELECT id FROM city WHERE name = 'Riyadh')),
 ('Al-Narjis', (SELECT id FROM city WHERE name = 'Riyadh')),
@@ -101,6 +101,6 @@ INSERT INTO district (name, city_id, created_at) VALUES
 ('Al-Taneem',     (SELECT id FROM city WHERE name = 'Makkah'));
 
 
-INSERT INTO cuisine (name, created_at) VALUES
+INSERT INTO cuisine (name) VALUES
 ('Saudi'), ('Italian'), ('Indian'), ('Chinese'), ('American');
 EOSQL
