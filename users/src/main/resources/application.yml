@@ -1,0 +1,45 @@
+spring:
+  application.name: users
+
+  security:
+    oauth2:
+      resource-server:
+        jwt:
+          issuer-uri: ${KC_URL:http://localhost:8080}/realms/${KC_REALM:users_realm}
+
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://host.docker.internal:9854/users}
+    username: ${DB_USER:users_db_admin}
+    password: ${DB_PASSWORD:users_db_admin}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+server:
+  port: ${SERVICE_PORT:8081}
+
+logging:
+  level:
+    root: ERROR
+    org.springframework: INFO
+    com.reservly: DEBUG
+
+springdoc:
+  api-docs:
+    path: /docs/api-docs
+  swagger-ui:
+    path: /docs/swagger-ui
+    try-it-out-enabled: true
+    disable-swagger-default-url: true
+    use-root-path: true
+
+keycloak:
+  url: ${KC_URL:http://localhost:8080}
+  realm: ${KC_REALM:users_realm}
+  admin-client: ${ADMIN_CLIENT:admin-client}
+  admin-client-secret: ${ADMIN_CLIENT_SECRET:BhsIubsCBIppnx6D04SoTfwzhDMGhYDU}
+  auth-client: ${AUTH_CLIENT:authentication-client}
+  auth-client-secret: ${AUTH_CLIENT_SECRET:Uir9guzm2UTot8EKKr4IrvnhDDcfF2Hk}

@@ -1,0 +1,13 @@
+spring:
+  application.name: apigw
+
+services:
+  users-url: ${USERS_BASE_URL:http://localhost:8081}
+  restaurants-url: ${RESTAURANTS_BASE_URL:http://localhost:8082}
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+
+server:
+  port: ${SERVICE_PORT:8083}
