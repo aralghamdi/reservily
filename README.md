@@ -37,9 +37,8 @@ bash init-schema.sh
 
 
 ### 4. Import postman collection
-Import the Postman collection provided in the repository
-Set the host variable to:
-http://host.docker.internal:8083
+- Import the Postman collection provided in the repository
+- Set the host variable to: http://host.docker.internal:8083
 
 ### 4. Initialize Admin User
 For the purpose of this assignment, you can create the first admin user by calling the following endpoint:
