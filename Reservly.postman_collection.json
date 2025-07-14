@@ -1,0 +1,2225 @@
+{
+	"info": {
+		"_postman_id": "9162a71a-1cf0-4b79-b9e1-4811472c879a",
+		"name": "Reservly",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29484887"
+	},
+	"item": [
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "auth",
+					"item": [
+						{
+							"name": "login",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"let res = pm.response.json();\r",
+											"\r",
+											"pm.collectionVariables.set('accessToken', res.accessToken);\r",
+											"pm.collectionVariables.set('refreshToken', res.refreshToken);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"admin@admin.com\",\r\n    \"password\": \"admin@123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/users/api/v1/auth/login",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users",
+										"api",
+										"v1",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "login",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"admin@admin.com\",\r\n    \"password\": \"admin@123\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}users/api/v1/auth/login",
+											"host": [
+												"{{host}}users"
+											],
+											"path": [
+												"api",
+												"v1",
+												"auth",
+												"login"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "transfer-encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 14 Jul 2025 17:34:58 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"accessToken\": \"Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJwYTM4M1FTM3dQS05raGk0MnU0OF85NFoxU2tGazJRaTBvX2pzcTNoSDQwIn0.eyJleHAiOjE3NTI1MTQ3OTgsImlhdCI6MTc1MjUxNDQ5OCwianRpIjoiMjUyMDgyYTYtNTNiNi00MTVlLWExYzEtYWU3OTI0NDU4MDI1IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL3JlYWxtcy91c2Vyc19yZWFsbSIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiJmMTMzYjIyYy1iMTczLTQ5MmYtYTFlNy01NzA3YzRmOTU1ZGUiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJhdXRoZW50aWNhdGlvbi1jbGllbnQiLCJzaWQiOiJkMjlhODQ2NS03NWJiLTRiNDktYTZhNy0yMjYwZDE1OTQ1MmIiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbIi8qIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsImRlZmF1bHQtcm9sZXMtdXNlcnNfcmVhbG0iLCJBRE1JTiIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwibmFtZSI6ImFkbWluIGFkbWluIiwicHJlZmVycmVkX3VzZXJuYW1lIjoiYWRtaW4iLCJnaXZlbl9uYW1lIjoiYWRtaW4iLCJmYW1pbHlfbmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20ifQ.FU58hEAlUSkn46cRW9lEK8UtUZuyw7nBoYD5O-xFZBEqkeR-BbQupb-I69JJrMNCb3ujJLULfsYjoJwIqSqQQldxHv_IJ0uvwD7Rx-CNBbERtDOPsFrkAf4JqKrodujRaMexkmSq_F0Olv__Q3yqGfU3M8S_ViFFrUFJ2qCkmZ64D8XIG0jf1Pz5dmHX7aPenbhvfE9FuFgfG5s593DP45W9j7Zuiphj5PSKAkTW45SSoS-Cxk-wGubyC1SnUaOYuFu8QXD4WhoAaGa2EylqqNTpaxhYGWgG2hFPfl398VWcvzzHr80NUcX0GNxBfoK--6ZQYLGXbqM9ierdWXg4Pg\",\n    \"refreshToken\": \"Bearer eyJhbGciOiJIUzUxMiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIwMTZkYTIwYS1lYmVlLTQyMjktODc0ZC04NDEyOGUxMDIwMTMifQ.eyJleHAiOjE3NTI1MTYyOTgsImlhdCI6MTc1MjUxNDQ5OCwianRpIjoiYmQ4NjVhZWItNGE1OS00NTE0LTk1ZDgtMWFkMDhkNTVkNmYxIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL3JlYWxtcy91c2Vyc19yZWFsbSIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9yZWFsbXMvdXNlcnNfcmVhbG0iLCJzdWIiOiJmMTMzYjIyYy1iMTczLTQ5MmYtYTFlNy01NzA3YzRmOTU1ZGUiLCJ0eXAiOiJSZWZyZXNoIiwiYXpwIjoiYXV0aGVudGljYXRpb24tY2xpZW50Iiwic2lkIjoiZDI5YTg0NjUtNzViYi00YjQ5LWE2YTctMjI2MGQxNTk0NTJiIiwic2NvcGUiOiJvcGVuaWQgZW1haWwgYWNyIHdlYi1vcmlnaW5zIHByb2ZpbGUgcm9sZXMgYmFzaWMgc2VydmljZV9hY2NvdW50In0.7CwAp0FtxSEGzZFUmrVedyJ0Hkn3vCvsgdOGY2talQPG6fes1FTBXp-fdjdopMi2ZeXrMB228OMVE_uSj6xA8A\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "users",
+					"item": [
+						{
+							"name": "create user",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{accessToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"admin@resrvly.com\",\r\n  \"firstName\": \"John\",\r\n  \"lastName\": \"Doe\",\r\n  \"type\": \"ADMIN\",\r\n  \"password\": \"Strong@Password123\",\r\n  \"confirmPassword\": \"Strong@Password123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/users/api/v1/user/create",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users",
+										"api",
+										"v1",
+										"user",
+										"create"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "create admin",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "{{accessToken}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"email\": \"admin@resrvly.com\",\r\n  \"firstName\": \"John\",\r\n  \"lastName\": \"Doe\",\r\n  \"type\": \"ADMIN\",\r\n  \"password\": \"Strong@Password123\",\r\n  \"confirmPassword\": \"Strong@Password123\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/users/api/v1/user/create",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"users",
+												"api",
+												"v1",
+												"user",
+												"create"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "transfer-encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 14 Jul 2025 17:59:55 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"username\": \"admin\",\n    \"email\": \"admin@resrvly.com\",\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\",\n    \"createdAt\": \"2025-07-14T20:59:55.8155925\",\n    \"updatedAt\": \"2025-07-14T20:59:55.8155925\"\n}"
+								},
+								{
+									"name": "create restaurant owner",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "{{accessToken}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"email\": \"owner@resrvly.com\",\r\n  \"firstName\": \"John\",\r\n  \"lastName\": \"Doe\",\r\n  \"type\": \"RESTAURANT_OWNER\",\r\n  \"password\": \"Strong@Password123\",\r\n  \"confirmPassword\": \"Strong@Password123\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/users/api/v1/user/create",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"users",
+												"api",
+												"v1",
+												"user",
+												"create"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "transfer-encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 14 Jul 2025 18:00:57 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"username\": \"owner\",\n    \"email\": \"owner@resrvly.com\",\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\",\n    \"createdAt\": \"2025-07-14T21:00:57.1853466\",\n    \"updatedAt\": \"2025-07-14T21:00:57.1853466\"\n}"
+								},
+								{
+									"name": "create customer",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "{{accessToken}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"email\": \"customer@resrvly.com\",\r\n  \"firstName\": \"John\",\r\n  \"lastName\": \"Doe\",\r\n  \"type\": \"CUSTOMER\",\r\n  \"password\": \"Strong@Password123\",\r\n  \"confirmPassword\": \"Strong@Password123\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/users/api/v1/user/create",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"users",
+												"api",
+												"v1",
+												"user",
+												"create"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "transfer-encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 14 Jul 2025 18:02:02 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"username\": \"customer\",\n    \"email\": \"customer@resrvly.com\",\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\",\n    \"createdAt\": \"2025-07-14T21:02:02.044921\",\n    \"updatedAt\": \"2025-07-14T21:02:02.044921\"\n}"
+								}
+							]
+						},
+						{
+							"name": "profile",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{accessToken}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/users/api/v1/user/profile",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users",
+										"api",
+										"v1",
+										"user",
+										"profile"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "profile",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "{{accessToken}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{host}}/users/api/v1/user/profile",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"users",
+												"api",
+												"v1",
+												"user",
+												"profile"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "transfer-encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 14 Jul 2025 18:03:34 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"username\": \"admin\",\n    \"email\": \"admin@resrvly.com\",\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\",\n    \"createdAt\": \"2025-07-14T20:59:55.815593\",\n    \"updatedAt\": \"2025-07-14T20:59:55.815593\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "init-admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/users/api/v1/user/init-admin",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users",
+								"api",
+								"v1",
+								"user",
+								"init-admin"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "restaurants",
+			"item": [
+				{
+					"name": "lookup",
+					"item": [
+						{
+							"name": "cities",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/api/v1/lookup/cities",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"lookup",
+										"cities"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "cities",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}/api/v1/lookup/cities",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"lookup",
+												"cities"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 14 Jul 2025 16:54:38 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"id\": 2,\n        \"name\": \"Riyadh\",\n        \"districts\": [\n            {\n                \"id\": 17,\n                \"name\": \"Olaya\",\n                \"city\": \"Riyadh\"\n            },\n            {\n                \"id\": 18,\n                \"name\": \"Al-Malaz\",\n                \"city\": \"Riyadh\"\n            },\n            {\n                \"id\": 19,\n                \"name\": \"Al-Narjis\",\n                \"city\": \"Riyadh\"\n            },\n            {\n                \"id\": 20,\n                \"name\": \"Al-Rimal\",\n                \"city\": \"Riyadh\"\n            }\n        ]\n    },\n    {\n        \"id\": 3,\n        \"name\": \"Jeddah\",\n        \"districts\": [\n            {\n                \"id\": 21,\n                \"name\": \"Al-Hamra\",\n                \"city\": \"Jeddah\"\n            },\n            {\n                \"id\": 22,\n                \"name\": \"Al-Safa\",\n                \"city\": \"Jeddah\"\n            },\n            {\n                \"id\": 23,\n                \"name\": \"Al-Rawdah\",\n                \"city\": \"Jeddah\"\n            },\n            {\n                \"id\": 24,\n                \"name\": \"Al-Murjan\",\n                \"city\": \"Jeddah\"\n            }\n        ]\n    },\n    {\n        \"id\": 4,\n        \"name\": \"Dammam\",\n        \"districts\": [\n            {\n                \"id\": 25,\n                \"name\": \"Al-Shati\",\n                \"city\": \"Dammam\"\n            },\n            {\n                \"id\": 26,\n                \"name\": \"Al-Faisaliah\",\n                \"city\": \"Dammam\"\n            },\n            {\n                \"id\": 27,\n                \"name\": \"Al-Khalij\",\n                \"city\": \"Dammam\"\n            },\n            {\n                \"id\": 28,\n                \"name\": \"Al-Mazruiyah\",\n                \"city\": \"Dammam\"\n            }\n        ]\n    },\n    {\n        \"id\": 5,\n        \"name\": \"Makkah\",\n        \"districts\": [\n            {\n                \"id\": 29,\n                \"name\": \"Al-Aziziyah\",\n                \"city\": \"Makkah\"\n            },\n            {\n                \"id\": 30,\n                \"name\": \"Al-Shawqiyyah\",\n                \"city\": \"Makkah\"\n            },\n            {\n                \"id\": 31,\n                \"name\": \"Al-Nuzhah\",\n                \"city\": \"Makkah\"\n            },\n            {\n                \"id\": 32,\n                \"name\": \"Al-Taneem\",\n                \"city\": \"Makkah\"\n            }\n        ]\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "districts",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/api/v1/lookup/districts",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"lookup",
+										"districts"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "cities",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}/api/v1/lookup/cities",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"lookup",
+												"cities"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 14 Jul 2025 16:54:38 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"id\": 2,\n        \"name\": \"Riyadh\",\n        \"districts\": [\n            {\n                \"id\": 17,\n                \"name\": \"Olaya\",\n                \"city\": \"Riyadh\"\n            },\n            {\n                \"id\": 18,\n                \"name\": \"Al-Malaz\",\n                \"city\": \"Riyadh\"\n            },\n            {\n                \"id\": 19,\n                \"name\": \"Al-Narjis\",\n                \"city\": \"Riyadh\"\n            },\n            {\n                \"id\": 20,\n                \"name\": \"Al-Rimal\",\n                \"city\": \"Riyadh\"\n            }\n        ]\n    },\n    {\n        \"id\": 3,\n        \"name\": \"Jeddah\",\n        \"districts\": [\n            {\n                \"id\": 21,\n                \"name\": \"Al-Hamra\",\n                \"city\": \"Jeddah\"\n            },\n            {\n                \"id\": 22,\n                \"name\": \"Al-Safa\",\n                \"city\": \"Jeddah\"\n            },\n            {\n                \"id\": 23,\n                \"name\": \"Al-Rawdah\",\n                \"city\": \"Jeddah\"\n            },\n            {\n                \"id\": 24,\n                \"name\": \"Al-Murjan\",\n                \"city\": \"Jeddah\"\n            }\n        ]\n    },\n    {\n        \"id\": 4,\n        \"name\": \"Dammam\",\n        \"districts\": [\n            {\n                \"id\": 25,\n                \"name\": \"Al-Shati\",\n                \"city\": \"Dammam\"\n            },\n            {\n                \"id\": 26,\n                \"name\": \"Al-Faisaliah\",\n                \"city\": \"Dammam\"\n            },\n            {\n                \"id\": 27,\n                \"name\": \"Al-Khalij\",\n                \"city\": \"Dammam\"\n            },\n            {\n                \"id\": 28,\n                \"name\": \"Al-Mazruiyah\",\n                \"city\": \"Dammam\"\n            }\n        ]\n    },\n    {\n        \"id\": 5,\n        \"name\": \"Makkah\",\n        \"districts\": [\n            {\n                \"id\": 29,\n                \"name\": \"Al-Aziziyah\",\n                \"city\": \"Makkah\"\n            },\n            {\n                \"id\": 30,\n                \"name\": \"Al-Shawqiyyah\",\n                \"city\": \"Makkah\"\n            },\n            {\n                \"id\": 31,\n                \"name\": \"Al-Nuzhah\",\n                \"city\": \"Makkah\"\n            },\n            {\n                \"id\": 32,\n                \"name\": \"Al-Taneem\",\n                \"city\": \"Makkah\"\n            }\n        ]\n    }\n]"
+								},
+								{
+									"name": "districts",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}/api/v1/lookup/districts",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"lookup",
+												"districts"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 14 Jul 2025 16:55:16 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"id\": 17,\n        \"name\": \"Olaya\",\n        \"city\": \"Riyadh\"\n    },\n    {\n        \"id\": 18,\n        \"name\": \"Al-Malaz\",\n        \"city\": \"Riyadh\"\n    },\n    {\n        \"id\": 19,\n        \"name\": \"Al-Narjis\",\n        \"city\": \"Riyadh\"\n    },\n    {\n        \"id\": 20,\n        \"name\": \"Al-Rimal\",\n        \"city\": \"Riyadh\"\n    },\n    {\n        \"id\": 21,\n        \"name\": \"Al-Hamra\",\n        \"city\": \"Jeddah\"\n    },\n    {\n        \"id\": 22,\n        \"name\": \"Al-Safa\",\n        \"city\": \"Jeddah\"\n    },\n    {\n        \"id\": 23,\n        \"name\": \"Al-Rawdah\",\n        \"city\": \"Jeddah\"\n    },\n    {\n        \"id\": 24,\n        \"name\": \"Al-Murjan\",\n        \"city\": \"Jeddah\"\n    },\n    {\n        \"id\": 25,\n        \"name\": \"Al-Shati\",\n        \"city\": \"Dammam\"\n    },\n    {\n        \"id\": 26,\n        \"name\": \"Al-Faisaliah\",\n        \"city\": \"Dammam\"\n    },\n    {\n        \"id\": 27,\n        \"name\": \"Al-Khalij\",\n        \"city\": \"Dammam\"\n    },\n    {\n        \"id\": 28,\n        \"name\": \"Al-Mazruiyah\",\n        \"city\": \"Dammam\"\n    },\n    {\n        \"id\": 29,\n        \"name\": \"Al-Aziziyah\",\n        \"city\": \"Makkah\"\n    },\n    {\n        \"id\": 30,\n        \"name\": \"Al-Shawqiyyah\",\n        \"city\": \"Makkah\"\n    },\n    {\n        \"id\": 31,\n        \"name\": \"Al-Nuzhah\",\n        \"city\": \"Makkah\"\n    },\n    {\n        \"id\": 32,\n        \"name\": \"Al-Taneem\",\n        \"city\": \"Makkah\"\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "cuisines",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/api/v1/lookup/cuisines",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"lookup",
+										"cuisines"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "cuisines",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{host}}/api/v1/lookup/cuisines",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"lookup",
+												"cuisines"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 14 Jul 2025 16:55:42 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"Italian\"\n    },\n    {\n        \"id\": 2,\n        \"name\": \"Saudi\"\n    },\n    {\n        \"id\": 3,\n        \"name\": \"Chinese\"\n    },\n    {\n        \"id\": 4,\n        \"name\": \"Indian\"\n    },\n    {\n        \"id\": 5,\n        \"name\": \"American\"\n    }\n]"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "restaurants",
+					"item": [
+						{
+							"name": "create resaurant",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{accessToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"My Restaurant\",\r\n  \"cuisineId\": 1,\r\n  \"cityId\": 2,\r\n  \"districtId\": 17,\r\n  \"openTime\": \"10:00:00\",\r\n  \"closeTime\": \"22:00:00\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/restaurants/api/v1/restaurants",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"restaurants",
+										"api",
+										"v1",
+										"restaurants"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "create restauarnt",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "{{accessToken}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"name\": \"My Restaurant\",\r\n  \"cuisineId\": 1,\r\n  \"cityId\": 2,\r\n  \"districtId\": 17,\r\n  \"openTime\": \"10:00:00\",\r\n  \"closeTime\": \"22:00:00\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/restaurants/api/v1/restaurants",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"restaurants",
+												"api",
+												"v1",
+												"restaurants"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "transfer-encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 14 Jul 2025 18:13:04 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"id\": null,\n    \"name\": \"My Restaurant\",\n    \"cuisine\": \"Italian\",\n    \"city\": \"Riyadh\",\n    \"district\": \"Olaya\",\n    \"openTime\": \"10:00:00\",\n    \"closeTime\": \"22:00:00\"\n}"
+								},
+								{
+									"name": "create restaurants",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "{{accessToken}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"name\": \"My Restaurant\",\r\n  \"cuisineId\": 1,\r\n  \"cityId\": 2,\r\n  \"districtId\": 17,\r\n  \"openTime\": \"10:00:00\",\r\n  \"closeTime\": \"22:00:00\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/restaurants/api/v1/restaurants",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"restaurants",
+												"api",
+												"v1",
+												"restaurants"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "transfer-encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 14 Jul 2025 18:32:36 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"id\": 1,\n    \"name\": \"My Restaurant\",\n    \"cuisine\": \"Italian\",\n    \"city\": \"Riyadh\",\n    \"district\": \"Olaya\",\n    \"openTime\": \"10:00:00\",\n    \"closeTime\": \"22:00:00\"\n}"
+								}
+							]
+						},
+						{
+							"name": "list restaurants",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{accessToken}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/restaurants/api/v1/restaurants?page=0&size=10",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"restaurants",
+										"api",
+										"v1",
+										"restaurants"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "list restaurants",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "{{accessToken}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{host}}/restaurants/api/v1/restaurants?page=0&size=10",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"restaurants",
+												"api",
+												"v1",
+												"restaurants"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "0"
+												},
+												{
+													"key": "size",
+													"value": "10"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "transfer-encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 14 Jul 2025 18:32:57 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"pageNumber\": 0,\n    \"pageSize\": 10,\n    \"totalPages\": 1,\n    \"items\": [\n        {\n            \"id\": 1,\n            \"name\": \"My Restaurant\",\n            \"cuisine\": \"Italian\",\n            \"city\": \"Riyadh\",\n            \"district\": \"Olaya\",\n            \"openTime\": \"10:00:00\",\n            \"closeTime\": \"22:00:00\"\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "get restaurant details",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{accessToken}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/restaurants/api/v1/restaurants/1",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"restaurants",
+										"api",
+										"v1",
+										"restaurants",
+										"1"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "get restaurant details",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "{{accessToken}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{host}}/restaurants/api/v1/restaurants/1",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"restaurants",
+												"api",
+												"v1",
+												"restaurants",
+												"1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "transfer-encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 14 Jul 2025 18:34:17 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"id\": 1,\n    \"name\": \"My Restaurant\",\n    \"cuisine\": \"Italian\",\n    \"city\": \"Riyadh\",\n    \"district\": \"Olaya\",\n    \"openTime\": \"10:00:00\",\n    \"closeTime\": \"22:00:00\"\n}"
+								}
+							]
+						},
+						{
+							"name": "update restaurant",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{accessToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"My Restaurant\",\r\n  \"cuisineId\": 1,\r\n  \"cityId\": 2,\r\n  \"districtId\": 17,\r\n  \"openTime\": \"07:00:00\",\r\n  \"closeTime\": \"20:00:00\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/restaurants/api/v1/restaurants/1",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"restaurants",
+										"api",
+										"v1",
+										"restaurants",
+										"1"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "update restaurant",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "{{accessToken}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"name\": \"My Restaurant\",\r\n  \"cuisineId\": 1,\r\n  \"cityId\": 2,\r\n  \"districtId\": 17,\r\n  \"openTime\": \"07:00:00\",\r\n  \"closeTime\": \"20:00:00\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/restaurants/api/v1/restaurants/1",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"restaurants",
+												"api",
+												"v1",
+												"restaurants",
+												"1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "transfer-encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 14 Jul 2025 18:36:53 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"id\": 1,\n    \"name\": \"My Restaurant\",\n    \"cuisine\": \"Italian\",\n    \"city\": \"Riyadh\",\n    \"district\": \"Olaya\",\n    \"openTime\": \"07:00:00\",\n    \"closeTime\": \"20:00:00\"\n}"
+								}
+							]
+						},
+						{
+							"name": "create table",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{accessToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"seatCount\": 4\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/restaurants/api/v1/restaurants/1/table",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"restaurants",
+										"api",
+										"v1",
+										"restaurants",
+										"1",
+										"table"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "create table",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "{{accessToken}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"seatCount\": 4\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/restaurants/api/v1/restaurants/1/table",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"restaurants",
+												"api",
+												"v1",
+												"restaurants",
+												"1",
+												"table"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "transfer-encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 14 Jul 2025 18:46:28 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"id\": 1,\n    \"seatCount\": 4,\n    \"restaurant\": {\n        \"id\": 1,\n        \"name\": \"My Restaurant\",\n        \"cuisine\": \"Italian\",\n        \"city\": \"Riyadh\",\n        \"district\": \"Olaya\",\n        \"openTime\": \"07:00:00\",\n        \"closeTime\": \"20:00:00\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "update table",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{accessToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"seatCount\": 10\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/restaurants/api/v1/restaurants/table/1",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"restaurants",
+										"api",
+										"v1",
+										"restaurants",
+										"table",
+										"1"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "update table",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "{{accessToken}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"seatCount\": 10\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/restaurants/api/v1/restaurants/table/1",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"restaurants",
+												"api",
+												"v1",
+												"restaurants",
+												"table",
+												"1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "transfer-encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 14 Jul 2025 18:48:07 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"id\": 1,\n    \"seatCount\": 10,\n    \"restaurant\": {\n        \"id\": 1,\n        \"name\": \"My Restaurant\",\n        \"cuisine\": \"Italian\",\n        \"city\": \"Riyadh\",\n        \"district\": \"Olaya\",\n        \"openTime\": \"07:00:00\",\n        \"closeTime\": \"20:00:00\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "list reservations",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": [
+								{
+									"name": "list reservations",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "{{accessToken}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{host}}/restaurants/api/v1/restaurants/1/reservations",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"restaurants",
+												"api",
+												"v1",
+												"restaurants",
+												"1",
+												"reservations"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "transfer-encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 14 Jul 2025 19:50:18 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"pageNumber\": 0,\n    \"pageSize\": 10,\n    \"totalPages\": 1,\n    \"items\": [\n        {\n            \"referenceNo\": \"cced417ae04d4cd3a672d161fe45769a\",\n            \"startTime\": \"2025-07-14T12:00:00\",\n            \"endTime\": \"2025-07-14T13:00:00\",\n            \"restaurant\": null\n        }\n    ]\n}"
+								},
+								{
+									"name": "list reservations",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "{{accessToken}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{host}}/restaurants/api/v1/restaurants/1/reservations",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"restaurants",
+												"api",
+												"v1",
+												"restaurants",
+												"1",
+												"reservations"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "transfer-encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 14 Jul 2025 19:52:15 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"pageNumber\": 0,\n    \"pageSize\": 10,\n    \"totalPages\": 1,\n    \"items\": [\n        {\n            \"referenceNo\": \"cced417ae04d4cd3a672d161fe45769a\",\n            \"startTime\": \"2025-07-14T12:00:00\",\n            \"endTime\": \"2025-07-14T13:00:00\",\n            \"restaurant\": null,\n            \"status\": \"ACTIVE\"\n        }\n    ]\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "reservations",
+					"item": [
+						{
+							"name": "search available",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{accessToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"districtId\": 17,\r\n  \"dateTime\": \"2025-07-14T12:00:00\",\r\n  \"durationMinutes\": 60\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/restaurants/api/v1/reservations/search?page=0&pageSize=10",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"restaurants",
+										"api",
+										"v1",
+										"reservations",
+										"search"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "pageSize",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "search available",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "{{accessToken}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"districtId\": 17,\r\n  \"dateTime\": \"2025-07-14T12:00:00\",\r\n  \"durationMinutes\": 60\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/restaurants/api/v1/reservations/search?page=0&pageSize=10",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"restaurants",
+												"api",
+												"v1",
+												"reservations",
+												"search"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "0"
+												},
+												{
+													"key": "pageSize",
+													"value": "10"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "transfer-encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 14 Jul 2025 19:38:11 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"pageNumber\": 0,\n    \"pageSize\": 10,\n    \"totalPages\": 1,\n    \"items\": [\n        {\n            \"id\": 1,\n            \"seatCount\": 10,\n            \"restaurant\": {\n                \"id\": 1,\n                \"name\": \"My Restaurant\",\n                \"cuisine\": {\n                    \"id\": 1,\n                    \"name\": \"Italian\"\n                },\n                \"city\": {\n                    \"id\": 2,\n                    \"name\": \"Riyadh\",\n                    \"districts\": [\n                        {\n                            \"id\": 17,\n                            \"name\": \"Olaya\",\n                            \"city\": \"Riyadh\"\n                        },\n                        {\n                            \"id\": 18,\n                            \"name\": \"Al-Malaz\",\n                            \"city\": \"Riyadh\"\n                        },\n                        {\n                            \"id\": 19,\n                            \"name\": \"Al-Narjis\",\n                            \"city\": \"Riyadh\"\n                        },\n                        {\n                            \"id\": 20,\n                            \"name\": \"Al-Rimal\",\n                            \"city\": \"Riyadh\"\n                        }\n                    ]\n                },\n                \"district\": {\n                    \"id\": 17,\n                    \"name\": \"Olaya\",\n                    \"city\": \"Riyadh\"\n                },\n                \"tables\": null,\n                \"openTime\": \"07:00:00\",\n                \"closeTime\": \"20:00:00\"\n            }\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "book table",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{accessToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"tableId\": 1,\r\n    \"dateTime\": \"2025-07-14T12:00:00\",\r\n    \"durationMinutes\": 60\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/restaurants/api/v1/reservations/book",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"restaurants",
+										"api",
+										"v1",
+										"reservations",
+										"book"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "book table",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "{{accessToken}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"tableId\": 1,\r\n    \"dateTime\": \"2025-07-14T12:00:00\",\r\n    \"durationMinutes\": 60\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/restaurants/api/v1/reservations/book",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"restaurants",
+												"api",
+												"v1",
+												"reservations",
+												"book"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "transfer-encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 14 Jul 2025 19:45:37 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"referenceNo\": \"cced417ae04d4cd3a672d161fe45769a\",\n    \"startTime\": \"2025-07-14T12:00:00\",\n    \"endTime\": \"2025-07-14T13:00:00\",\n    \"restaurant\": null\n}"
+								}
+							]
+						},
+						{
+							"name": "user reservations",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{accessToken}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/restaurants/api/v1/reservations/user-reservations",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"restaurants",
+										"api",
+										"v1",
+										"reservations",
+										"user-reservations"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "user reservations",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "{{accessToken}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{host}}/restaurants/api/v1/reservations/user-reservations",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"restaurants",
+												"api",
+												"v1",
+												"reservations",
+												"user-reservations"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "transfer-encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 14 Jul 2025 19:47:32 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"pageNumber\": 0,\n    \"pageSize\": 10,\n    \"totalPages\": 1,\n    \"items\": [\n        {\n            \"referenceNo\": \"cced417ae04d4cd3a672d161fe45769a\",\n            \"startTime\": \"2025-07-14T12:00:00\",\n            \"endTime\": \"2025-07-14T13:00:00\",\n            \"restaurant\": null\n        }\n    ]\n}"
+								},
+								{
+									"name": "user reservations",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "{{accessToken}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{host}}/restaurants/api/v1/reservations/user-reservations",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"restaurants",
+												"api",
+												"v1",
+												"reservations",
+												"user-reservations"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "transfer-encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 14 Jul 2025 19:52:54 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"pageNumber\": 0,\n    \"pageSize\": 10,\n    \"totalPages\": 1,\n    \"items\": [\n        {\n            \"referenceNo\": \"cced417ae04d4cd3a672d161fe45769a\",\n            \"startTime\": \"2025-07-14T12:00:00\",\n            \"endTime\": \"2025-07-14T13:00:00\",\n            \"restaurant\": null,\n            \"status\": \"ACTIVE\"\n        }\n    ]\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "accessToken",
+			"value": ""
+		},
+		{
+			"key": "refreshToken",
+			"value": ""
+		}
+	]
+}
